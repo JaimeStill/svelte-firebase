@@ -1,9 +1,10 @@
 <script lang="ts">
+	import styles from './styles.scss';
 	import type { Subscription } from "rxjs";
-
 	import { onDestroy } from "svelte";
-	import logo from "./assets/svelte.png";
 	import Counter from "./components/Counter.svelte";
+	import Loading from './components/Loading.svelte';
+	import logo from "./assets/svelte.png";
 
 	import { FirebaseContext, AuthService, AuthState } from "./lib";
 
@@ -20,7 +21,6 @@
 		sub.unsubscribe();
 	});
 </script>
-
 {#if state && !state.loading}
 	{#if state.user}
 		<main>
@@ -45,10 +45,12 @@
 			</div>
 		</main>
 	{:else}
-		<button on:click={auth.signin}>Signin</button>
+		<button on:click={auth.signin}>
+			Signin
+		</button>
 	{/if}
 {:else}
-	<p>Loading...</p>
+	<Loading />
 {/if}
 
 <style>

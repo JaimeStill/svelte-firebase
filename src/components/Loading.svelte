@@ -1,7 +1,7 @@
-<script lang="ts">
-	import loading from '../assets/loading.svg';
+<script>
+	import Center from './Center.svelte';
 </script>
 
-<div class="fx-container fx-column fx-center flex">
-	<img src={loading} alt="loading..." />
-</div>
+<Center>
+	<i class="fa-solid fa-spinner fa-spin-pulse fa-6x sf-primary" />
+</Center>
